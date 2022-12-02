@@ -1,8 +1,8 @@
-# Kali Docker with Wi-Fi tools
+# Docker image (kali) with Wi-Fi tools
 
 ## Building
 
-`sudo docker build . -t kali`
+`sudo docker build kali/ -t kali`
 
 ## Pulling
 

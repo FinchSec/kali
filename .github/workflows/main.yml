@@ -1,4 +1,4 @@
-name: Docker build and upload
+name: Kali docker build and upload
 
 on:
   push:
@@ -40,6 +40,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: "{{defaultContext}}:kali"
           platforms: linux/amd64,linux/arm64,linux/armhf
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
