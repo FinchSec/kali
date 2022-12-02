@@ -6,7 +6,7 @@ on:
       - 'main'
     paths:
       - kali/**
-      - .github/workflows/main.yml
+      - .github/workflows/kali.yml
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
