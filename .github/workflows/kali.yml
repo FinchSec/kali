@@ -52,3 +52,11 @@ jobs:
           tags: |
             finchsec/kali:latest
             ghcr.io/finchsec/kali:latest
+      -
+        name: Update Docker repo description
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          readme-filepath: ./kali/docker-README.md
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: finchsec/kali:latest
