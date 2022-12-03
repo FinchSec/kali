@@ -21,7 +21,7 @@ RUN apt update && \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully psmisc python3-simplejson iproute2 \
 			file bzip2 dns-root-data nftables iptables manpages xz-utils \
-			--no-install-recommends -y && \
+			openssh-client --no-install-recommends -y && \
 		apt autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
 # Kismet
