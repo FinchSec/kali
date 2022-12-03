@@ -18,9 +18,12 @@ jobs:
         uses: actions/checkout@v3
       -
         name: Update Docker repo description
-        uses: peter-evans/dockerhub-description@v3.1.2
+        uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASS: ${{ secrets.DOCKERHUB_TOKEN }}
         with:
-          readme-filepath: './kali/docker-README.md'
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: finchsec/kali
+          destination_container_repo: finchsec/kali
+          provider: dockerhub
+          short_description: 'Kali with Wi-Fi tools - Refreshed/Updated every day'
+          readme_file: './kali/docker-README.md'
