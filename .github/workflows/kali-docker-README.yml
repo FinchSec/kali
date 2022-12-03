@@ -1,0 +1,30 @@
+name: Kali DockerHub README update
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - kali/docker-README.md
+      - .github/workflows/kali-docker-README.yml
+  workflow_dispatch:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Login to Docker Hub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Update Docker repo description
+        uses: peter-evans/dockerhub-description@v3.1.2
+        with:
+          readme-filepath: ./kali/docker-README.md
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: finchsec/kali:latest
