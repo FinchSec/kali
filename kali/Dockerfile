@@ -4,7 +4,7 @@ RUN apt update && \
 	echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/force-unsafe-io && \
 	apt dist-upgrade -y && \
 		apt install locales -y && \
-		echo "${LANG}" > /etc/locale.gen && locale-gen && \
+		echo "${LANG}" | tr '.' ' ' > /etc/locale.gen && locale-gen && \
 		DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends tzdata && \
 		apt install debconf-utils -y && \
 		echo "locales locales/default_environment_locale select ${LANG}" | debconf-set-selections && \
