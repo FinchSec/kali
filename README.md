@@ -4,6 +4,10 @@
 
 `sudo docker build kali/ -t kali`
 
+To build the version with OpenSSH server:
+
+`sudo docker build kali/ -f kali/Dockerfile.sshd -t kali-sshd`
+
 ## Pulling
 
 ### DockerHub
