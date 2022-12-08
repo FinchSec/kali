@@ -1,4 +1,4 @@
-name: Kali docker build and upload
+name: Docker build and upload
 
 on:
   push:
