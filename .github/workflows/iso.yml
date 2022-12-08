@@ -84,5 +84,5 @@ jobs:
         with:
           name: kali-iso
           path: |
-            images/kali-*/kali-linux-*.iso
+            live-build-config/images/kali-*/kali-linux-*.iso
 
