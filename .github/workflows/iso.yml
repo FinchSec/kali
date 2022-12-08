@@ -1,0 +1,86 @@
+name: Custom Kali ISO
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - iso/**
+      - .github/workflows/iso.yml
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - iso/**
+
+env:
+  KALI_MIRROR: https://kali.download/kali
+
+jobs:
+  iso-build:
+    runs-on: ubuntu-22.04
+    steps:
+      -
+        name: Git Checkout
+        uses: actions/checkout@v3
+      #- name: Run ShellCheck
+      #  uses: ludeeus/action-shellcheck@master
+      #  with:
+      #    scandir: './iso'
+      -
+        name: Install packages
+        run: |
+          apt update
+          apt full-upgrade -y
+          apt install -y git live-build simple-cdd cdebootstrap curl wget
+      -
+        name: Download and install Kali keyring package
+        run: |
+          KEYRING_URL="${KALI_MIRROR}/pool/main/k/kali-archive-keyring/"
+          KEYRING_PKG=$(curl ${KEYRING_URL} | grep -Po 'kali-archive-keyring_20[0-9][0-9].[0-9]_all.deb' | head -n 1)
+          wget "${KEYRING_URL}/${KEYRING_PKG}"
+          dpkg -i "${KEYRING_PKG}"
+      -
+        name: Download and install Kali Live build package
+        run: |
+          LIVE_BUILD_URL="${KALI_MIRROR}/pool/main/l/live-build/"
+          LIVE_BUILD_PKG=$(curl "${LIVE_BUILD_URL}" | grep -Po 'live-build_20[0-9]{6}_all.deb' | head -n 1)
+          wget "${LIVE_BUILD_URL}/${LIVE_BUILD_PKG}"
+          dpkg -i "${LIVE_BUILD_PKG}" | apt -f install -y
+      -
+        name: Set kali mirror
+        run: |
+          cd /usr/share/debootstrap/scripts/
+          (echo "default_mirror ${KALI_MIRROR}"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > /tmp/kali
+          mv /tmp/kali .
+          # Throws an error but it is unimportant
+          ln -s kali kali-rolling | echo "OK"
+          cd -
+      -
+        name: Clone Kali live build repo
+        uses: sudosubin/git-clone-action@v1
+        with:
+          repository: kalilinux/build-scripts/live-build-config.git
+          platform: gitlab
+      -
+        name: Add our settings
+        run: |
+          cd live-build-config/
+          sed -i 's/kali-linux-default/#kali-linux-default/' kali-config/variant-default/package-lists/kali.list.chroot
+          cat ../packages.txt >> kali-config/variant-default/package-lists/kali.list.chroot
+      -
+        name: Build our custom ISO (live, with GUI)
+        run: |
+          ./build.sh --verbose --variant default
+      -
+        name: Save ISO
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v3
+        with:
+          name: kali-iso
+          path: |
+            images/kali-*/kali-linux-*.iso
+
