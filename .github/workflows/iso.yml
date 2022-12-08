@@ -33,31 +33,31 @@ jobs:
       -
         name: Install packages
         run: |
-          apt update
-          apt full-upgrade -y
-          apt install -y git live-build simple-cdd cdebootstrap curl wget
+          sudo apt update
+          sudo apt full-upgrade -y
+          sudo apt install -y git live-build simple-cdd cdebootstrap curl wget
       -
         name: Download and install Kali keyring package
         run: |
           KEYRING_URL="${KALI_MIRROR}/pool/main/k/kali-archive-keyring/"
           KEYRING_PKG=$(curl ${KEYRING_URL} | grep -Po 'kali-archive-keyring_20[0-9][0-9].[0-9]_all.deb' | head -n 1)
           wget "${KEYRING_URL}/${KEYRING_PKG}"
-          dpkg -i "${KEYRING_PKG}"
+          sudo dpkg -i "${KEYRING_PKG}"
       -
         name: Download and install Kali Live build package
         run: |
           LIVE_BUILD_URL="${KALI_MIRROR}/pool/main/l/live-build/"
           LIVE_BUILD_PKG=$(curl "${LIVE_BUILD_URL}" | grep -Po 'live-build_20[0-9]{6}_all.deb' | head -n 1)
           wget "${LIVE_BUILD_URL}/${LIVE_BUILD_PKG}"
-          dpkg -i "${LIVE_BUILD_PKG}" | apt -f install -y
+          sudo dpkg -i "${LIVE_BUILD_PKG}" | sudo apt -f install -y
       -
         name: Set kali mirror
         run: |
           cd /usr/share/debootstrap/scripts/
-          (echo "default_mirror ${KALI_MIRROR}"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > /tmp/kali
-          mv /tmp/kali .
+          (echo "default_mirror ${KALI_MIRROR}"; sudo sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > /tmp/kali
+          sudo mv /tmp/kali .
           # Throws an error but it is unimportant
-          ln -s kali kali-rolling | echo "OK"
+          sudo ln -s kali kali-rolling | echo "OK"
           cd -
       -
         name: Clone Kali live build repo
@@ -74,7 +74,7 @@ jobs:
       -
         name: Build our custom ISO (live, with GUI)
         run: |
-          ./build.sh --verbose --variant default
+          sudo ./build.sh --verbose --variant default
       -
         name: Save ISO
         if: github.event_name != 'pull_request'
