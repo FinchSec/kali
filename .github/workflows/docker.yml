@@ -7,9 +7,9 @@ on:
     paths:
       - 'docker/**'
       - '.github/workflows/docker.yml'
-      - '!kali/README.md'
-      - '!kali/docker-README.md'
-      - '!kali/Dockerfile.sshd'
+      - '!docker/README.md'
+      - '!docker/docker-README.md'
+      - '!docker/Dockerfile.sshd'
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
@@ -18,9 +18,9 @@ on:
       - 'main'
     paths:
       - 'docker/**'
-      - '!kali/README.md'
-      - '!kali/docker-README.md'
-      - '!kali/Dockerfile.sshd'
+      - '!docker/README.md'
+      - '!docker/docker-README.md'
+      - '!docker/Dockerfile.sshd'
 
 jobs:
   docker:
