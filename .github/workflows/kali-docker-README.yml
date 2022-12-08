@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - kali/docker-README.md
+      - docker/docker-README.md
       - .github/workflows/kali-docker-README.yml
   workflow_dispatch:
 
