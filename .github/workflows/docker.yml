@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'kali/**'
+      - 'docker/**'
       - '.github/workflows/docker.yml'
       - '!kali/README.md'
       - '!kali/docker-README.md'
@@ -17,7 +17,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'kali/**'
+      - 'docker/**'
       - '!kali/README.md'
       - '!kali/docker-README.md'
       - '!kali/Dockerfile.sshd'
