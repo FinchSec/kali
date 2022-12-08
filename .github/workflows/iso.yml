@@ -65,6 +65,7 @@ jobs:
         with:
           repository: kalilinux/build-scripts/live-build-config
           platform: gitlab
+          path: live-build-config
       -
         name: Add our settings
         run: |
