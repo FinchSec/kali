@@ -1,4 +1,5 @@
 FROM kalilinux/kali-rolling
+LABEL org.opencontainers.image.authors="thomas@finchsec.com"
 ENV LANG en_US.UTF-8
 RUN apt update && \
 	echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/force-unsafe-io && \

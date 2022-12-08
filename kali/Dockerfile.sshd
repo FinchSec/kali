@@ -1,4 +1,5 @@
 FROM finchsec/kali
+LABEL org.opencontainers.image.authors="thomas@finchsec.com"
 RUN apt update && \
 		apt install openssh-server --no-install-recommends -y && \
 		apt autoclean && \
