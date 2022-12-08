@@ -1,4 +1,4 @@
-Source: https://github.com/FinchSec/docker
+Source: https://github.com/FinchSec/kali
 
 # Run
 
