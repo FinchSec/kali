@@ -6,7 +6,7 @@ on:
       - 'main'
     paths:
       - docker/docker-README.md
-      - .github/workflows/kali-docker-README.yml
+      - .github/workflows/docker-README.yml
   workflow_dispatch:
 
 jobs:
