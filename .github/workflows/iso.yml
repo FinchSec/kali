@@ -61,7 +61,7 @@ jobs:
           cd -
       -
         name: Clone Kali live build repo
-        uses: sudosubin/git-clone-action@v1
+        uses: sudosubin/git-clone-action@v1.0.1
         with:
           repository: kalilinux/build-scripts/live-build-config.git
           platform: gitlab
