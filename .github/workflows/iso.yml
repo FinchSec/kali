@@ -70,7 +70,7 @@ jobs:
         run: |
           cd live-build-config/
           sed -i 's/kali-linux-default/#kali-linux-default/' kali-config/variant-default/package-lists/kali.list.chroot
-          cat ../packages.txt >> kali-config/variant-default/package-lists/kali.list.chroot
+          cat ../iso/packages.txt >> kali-config/variant-default/package-lists/kali.list.chroot
       -
         name: Build our custom ISO (live, with GUI)
         run: |
