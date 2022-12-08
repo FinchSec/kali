@@ -75,6 +75,7 @@ jobs:
       -
         name: Build our custom ISO (live, with GUI)
         run: |
+          cd live-build-config/
           sudo ./build.sh --verbose --variant default
       -
         name: Save ISO
