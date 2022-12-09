@@ -1,20 +1,20 @@
 name: Custom Kali ISO
 
 on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - iso/**
-      - .github/workflows/iso.yml
-  schedule:
-    - cron: '0 0 1 * *'
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - 'main'
-    paths:
-      - iso/**
+  #push:
+  #  branches:
+  #    - 'main'
+  #  paths:
+  #    - iso/**
+  #    - .github/workflows/iso.yml
+  #schedule:
+  #  - cron: '0 0 1 * *'
+  #workflow_dispatch:
+  #pull_request:
+  #  branches:
+  #    - 'main'
+  #  paths:
+  #    - iso/**
 
 env:
   KALI_MIRROR: https://kali.download/kali
@@ -77,6 +77,14 @@ jobs:
         run: |
           cd live-build-config/
           sudo ./build.sh --verbose --variant default
+      -
+        name: Upload build log in case of failure
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: build.log
+          path: |
+            live-build-config/build.log
       -
         name: Save ISO
         if: github.event_name != 'pull_request'
