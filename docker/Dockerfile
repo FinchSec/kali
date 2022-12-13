@@ -21,7 +21,7 @@ RUN apt update && \
 			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully psmisc python3-simplejson iproute2 \
-			file bzip2 dns-root-data nftables iptables manpages xz-utils \
+			file bzip2 dns-root-data nftables iptables man-db xz-utils \
 			openssh-client kmod ocl-icd-libopencl1 intel-opencl-icd \
 			--no-install-recommends -y && \
 		apt autoclean && \
