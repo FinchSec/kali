@@ -26,7 +26,7 @@ RUN apt update && \
 			--no-install-recommends -y && \
 		apt autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
-RUN [ $(uname -m) = "x86_64" ] && \
+RUN [ "$(uname -m)" = "x86_64" ] && \
 	apt install intel-opencl-icd --no-install-recommends -y
 # Kismet
 EXPOSE 2501
