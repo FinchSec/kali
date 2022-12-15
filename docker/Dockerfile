@@ -23,11 +23,10 @@ RUN apt update && \
 			eapmd5pass pixiewps bully psmisc python3-simplejson iproute2 \
 			file bzip2 dns-root-data nftables iptables man-db xz-utils \
 			openssh-client kmod ocl-icd-libopencl1 \
+			$([ "$(uname -m)" = "x86_64" ] && echo intel-opencl-icd) \
 			--no-install-recommends -y && \
 		apt autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
-RUN [ "$(uname -m)" = "x86_64" ] && \
-	apt install intel-opencl-icd --no-install-recommends -y
 # Kismet
 EXPOSE 2501
 # Bettercap
