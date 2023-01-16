@@ -15,6 +15,7 @@ RUN apt update && \
 		echo "wireshark-common	wireshark-common/install-setuid	boolean boolean false" | debconf-set-selections && \
 		DEBIAN_FRONTEND=noninteractive apt install -y kismet tshark && \
 		apt purge debconf-utils -y && \
+		uname -m && \
 		apt install net-tools screen tmux nano vim python3 perl rfkill iw \
 			aircrack-ng tcpdump john cowpatty hashcat routerkeygenpc \
 			asleap bettercap hostapd-mana reaver mdk3 mdk4 procps zsh \
