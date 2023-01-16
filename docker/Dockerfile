@@ -1,6 +1,7 @@
 FROM kalilinux/kali-rolling
 LABEL org.opencontainers.image.authors="thomas@finchsec.com"
 ENV LANG en_US.UTF-8
+RUN echo "[*] uname -n: $(uname -m)" && exit 1
 RUN apt-get update && \
 	echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/force-unsafe-io && \
 	apt-get dist-upgrade -y && \
@@ -15,7 +16,6 @@ RUN apt-get update && \
 		echo "wireshark-common	wireshark-common/install-setuid	boolean boolean false" | debconf-set-selections && \
 		DEBIAN_FRONTEND=noninteractive apt-get install -y kismet tshark && \
 		apt-get purge debconf-utils -y && \
-		uname -m && \
 		apt-get install net-tools screen tmux nano vim python3 perl rfkill iw \
 			aircrack-ng tcpdump john cowpatty hashcat routerkeygenpc \
 			asleap bettercap hostapd-mana reaver mdk3 mdk4 procps zsh \
