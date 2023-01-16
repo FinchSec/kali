@@ -1,20 +1,20 @@
 name: Custom Kali ISO
 
 on:
-  #push:
-  #  branches:
-  #    - 'main'
-  #  paths:
-  #    - iso/**
-  #    - .github/workflows/iso.yml
-  #schedule:
-  #  - cron: '0 0 1 * *'
-  #workflow_dispatch:
-  #pull_request:
-  #  branches:
-  #    - 'main'
-  #  paths:
-  #    - iso/**
+  push:
+    branches:
+      - 'main'
+    paths:
+      - iso/**
+      - .github/workflows/iso.yml
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - iso/**
 
 env:
   KALI_MIRROR: https://kali.download/kali
