@@ -17,15 +17,15 @@ RUN apt-get update && \
 		DEBIAN_FRONTEND=noninteractive apt-get install -y kismet tshark && \
 		apt-get purge debconf-utils -y && \
 		apt-get install net-tools screen tmux nano vim python3 perl rfkill iw \
-			aircrack-ng tcpdump john cowpatty hashcat routerkeygenpc \
+			aircrack-ng tcpdump john cowpatty routerkeygenpc \
 			asleap bettercap hostapd-mana reaver mdk3 mdk4 procps zsh \
 			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully psmisc python3-simplejson iproute2 \
 			file bzip2 dns-root-data nftables iptables man-db xz-utils \
-			openssh-client kmod ocl-icd-libopencl1 \
+			$([ "$(uname -m)" != "armv7l" ] && echo hashcat) \
 			$([ "$(uname -m)" = "x86_64" ] && echo intel-opencl-icd) \
-			--no-install-recommends -y && \
+			openssh-client kmod --no-install-recommends -y && \
 		apt-get autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
 # Kismet
