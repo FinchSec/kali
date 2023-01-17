@@ -43,6 +43,7 @@ jobs:
         with:
           driver-opts: |
             image=moby/buildkit:v0.10.6
+          buildkitd-flags: --debug
       -
         name: Login to GitHub Container Registry
         if: github.event_name != 'pull_request'
