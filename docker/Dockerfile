@@ -22,7 +22,7 @@ RUN apt-get update && \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully psmisc python3-simplejson iproute2 \
 			file bzip2 dns-root-data nftables iptables man-db xz-utils \
-			$([ "$(uname -m)" != "armv7l" ] && echo hashcat) \
+			$([ "$(uname -m)" != "armv7l" ] && echo hashcat pocl-opencl-icd) \
 			$([ "$(uname -m)" = "x86_64" ] && echo intel-opencl-icd) \
 			openssh-client kmod --no-install-recommends -y && \
 		apt-get autoclean && \
