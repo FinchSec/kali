@@ -12,11 +12,15 @@ To build the version with OpenSSH server:
 
 ### DockerHub
 
+[![Build status](https://github.com/FinchSec/kali/actions/workflows/docker.yml/badge.svg)](https://github.com/FinchSec/kali/actions/workflows/docker.yml)
+
 URL: https://hub.docker.com/r/finchsec/kali
 
 `sudo docker pull finchsec/kali`
 
 ### GitHub
+
+[![Build status](https://github.com/FinchSec/kali/actions/workflows/docker-ghcrio.yml/badge.svg)](https://github.com/FinchSec/kali/actions/workflows/docker-ghcrio.yml)
 
 `sudo docker pull ghcr.io/finchsec/kali`
 
