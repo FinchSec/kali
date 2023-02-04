@@ -1,5 +1,31 @@
 # Docker image (kali) with Wi-Fi tools
 
+## List of tools
+
+- Kismet
+- TShark
+- Aircrack-ng suite
+- tcpdump
+- John The ripper
+- Cowpatty
+- routerkeygenpc
+- asleap
+- bettercap
+- hostapd-mana
+- reaver
+- mdk3
+- mdk4
+- hostapd-wpe
+- freeradius-wpe
+- wig-ng
+- wifipumpkin3
+- airgeddon
+- eaphammer
+- eapmd5pass
+- pixiewps
+- bully
+- hashcat (not available on armv7l)
+
 ## Building
 
 `sudo docker build kali/ -t kali`
