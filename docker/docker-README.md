@@ -26,6 +26,7 @@ Source: https://github.com/FinchSec/kali
 - bully
 - hashcat (not available on armv7l)
 - wifite
+- hashcat-utils
 
 # Run
 
