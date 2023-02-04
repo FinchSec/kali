@@ -24,7 +24,7 @@ RUN apt-get update && \
 			file bzip2 dns-root-data nftables iptables man-db xz-utils \
 			$([ "$(uname -m)" != "armv7l" ] && echo hashcat-utils hashcat pocl-opencl-icd) \
 			$([ "$(uname -m)" = "x86_64" ] && echo intel-opencl-icd) \
-			openssh-client kmod wifite --no-install-recommends -y && \
+			openssh-client kmod wifite hcxdumptool --no-install-recommends -y && \
 		apt-get autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
 # Kismet

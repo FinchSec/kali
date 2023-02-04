@@ -27,6 +27,7 @@
 - hashcat (not available on armv7l)
 - wifite
 - hashcat-utils (not available on armv7l)
+- hcxdumptool
 
 ## Building
 
