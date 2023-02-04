@@ -25,6 +25,7 @@ Source: https://github.com/FinchSec/kali
 - pixiewps
 - bully
 - hashcat (not available on armv7l)
+- wifite
 
 # Run
 
