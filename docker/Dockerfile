@@ -16,7 +16,7 @@ RUN apt-get update && \
 		DEBIAN_FRONTEND=noninteractive apt-get install -y kismet tshark && \
 		apt-get purge debconf-utils -y && \
 		apt-get install net-tools screen tmux nano vim python3 perl rfkill iw \
-			aircrack-ng tcpdump john cowpatty routerkeygenpc \
+			aircrack-ng tcpdump john cowpatty routerkeygenpc wpa-sycophant \
 			asleap bettercap hostapd-mana reaver mdk3 mdk4 procps zsh \
 			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \

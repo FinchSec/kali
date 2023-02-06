@@ -28,6 +28,7 @@
 - wifite
 - hashcat-utils (not available on armv7l)
 - hcxdumptool
+- wpa-sycophant
 
 ## Building
 

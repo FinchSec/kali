@@ -28,6 +28,7 @@ Source: https://github.com/FinchSec/kali
 - wifite
 - hashcat-utils (not available on armv7l)
 - hcxdumptool
+- wpa-sycophant
 
 # Run
 
