@@ -1,3 +1,4 @@
+FROM finchsec/asleap:static as asleap
 FROM kalilinux/kali-rolling
 LABEL org.opencontainers.image.authors="thomas@finchsec.com"
 ENV LANG en_US.UTF-8
@@ -27,6 +28,9 @@ RUN apt-get update && \
 			openssh-client kmod wifite hcxdumptool --no-install-recommends -y && \
 		apt-get autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
+# Use statically compiled asleap
+COPY --from=asleap /usr/bin/asleap /usr/local/bin/asleap
+COPY --from=asleap /usr/bin/genkeys /usr/local/bin/genkeys
 # Kismet
 EXPOSE 2501
 # Bettercap
