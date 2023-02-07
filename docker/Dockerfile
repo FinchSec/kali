@@ -19,7 +19,7 @@ RUN apt-get update && \
 		apt-get install net-tools screen tmux nano vim python3 perl rfkill iw \
 			aircrack-ng tcpdump john cowpatty routerkeygenpc wpa-sycophant \
 			asleap bettercap hostapd-mana reaver mdk3 mdk4 procps zsh \
-			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon \
+			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon pcapfix \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully psmisc python3-simplejson iproute2 \
 			file bzip2 dns-root-data nftables iptables man-db xz-utils \

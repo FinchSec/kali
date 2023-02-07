@@ -29,6 +29,7 @@
 - hashcat-utils (not available on armv7l)
 - hcxdumptool
 - wpa-sycophant
+- pcapfix
 
 ## Building
 

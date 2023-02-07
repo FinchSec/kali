@@ -29,6 +29,7 @@ Source: https://github.com/FinchSec/kali
 - hashcat-utils (not available on armv7l)
 - hcxdumptool
 - wpa-sycophant
+- pcapfix
 
 # Run
 
