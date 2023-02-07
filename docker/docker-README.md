@@ -30,6 +30,7 @@ Source: https://github.com/FinchSec/kali
 - hcxdumptool
 - wpa-sycophant
 - pcapfix
+- termshark
 
 # Run
 

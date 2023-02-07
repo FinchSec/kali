@@ -30,6 +30,7 @@
 - hcxdumptool
 - wpa-sycophant
 - pcapfix
+- termshark
 
 ## Building
 
