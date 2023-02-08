@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'docker/**'
+      - 'docker/Dockerfile'
       - '.github/workflows/docker.yml'
       - '!docker/README.md'
       - '!docker/docker-README.md'
@@ -17,7 +17,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'docker/**'
+      - 'docker/Dockerfile'
       - '!docker/README.md'
       - '!docker/docker-README.md'
       - '!docker/Dockerfile.sshd'
