@@ -20,10 +20,6 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        platform: [ linux/amd64, linux/arm64, linux/armhf ]
     steps:
       -
         name: Git Checkout
@@ -50,7 +46,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          platforms: ${{ matrix.platform }}
+          platforms: linux/amd64, linux/arm64, linux/armhf
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             finchsec/kali:latest
