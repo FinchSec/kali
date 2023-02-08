@@ -47,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: "{{defaultContext}}:docker"
-          file: "docker/Dockerfile.base"
+          file: "Dockerfile.base"
           platforms: linux/amd64, linux/arm64, linux/armhf
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
