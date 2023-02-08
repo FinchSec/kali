@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - docker/docker-README.md
+      - docker-README.md
       - .github/workflows/docker-README.yml
   workflow_dispatch:
 
@@ -20,7 +20,7 @@ jobs:
         name: Update Docker repo description
         uses: peter-evans/dockerhub-description@v3.1.2
         with:
-          readme-filepath: './docker/docker-README.md'
+          readme-filepath: './docker-README.md'
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: finchsec/kali

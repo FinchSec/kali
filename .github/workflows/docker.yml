@@ -5,11 +5,9 @@ on:
     branches:
       - 'main'
     paths:
-      - 'docker/Dockerfile'
+      - 'Dockerfile'
       - '.github/workflows/docker.yml'
-      - '!docker/README.md'
-      - '!docker/docker-README.md'
-      - '!docker/Dockerfile.sshd'
+      - 'README.md'
   schedule:
     - cron: '0 5 * * *'
   workflow_dispatch:
@@ -17,10 +15,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'docker/Dockerfile'
-      - '!docker/README.md'
-      - '!docker/docker-README.md'
-      - '!docker/Dockerfile.sshd'
+      - 'Dockerfile'
 
 jobs:
   docker:
@@ -37,7 +32,7 @@ jobs:
         name: Lint Dockerfile
         uses: ghe-actions/dockerfile-validator@v1
         with:
-          dockerfile: 'docker/Dockerfile'
+          dockerfile: 'Dockerfile'
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -55,7 +50,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:docker"
           platforms: ${{ matrix.platform }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
