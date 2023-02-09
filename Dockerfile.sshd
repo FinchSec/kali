@@ -1,8 +1,8 @@
 FROM finchsec/kali
 LABEL org.opencontainers.image.authors="thomas@finchsec.com"
-RUN apt update && \
-		apt install openssh-server --no-install-recommends -y && \
-		apt autoclean && \
+RUN apt-get update && \
+		apt-get install openssh-server --no-install-recommends -y && \
+		apt-get autoclean && \
 		rm -rf /var/lib/dpkg/status-old /var/lib/apt/lists/*
 RUN useradd -ms /bin/bash kali && usermod --password kali kali
 # SSH
