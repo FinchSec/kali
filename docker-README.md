@@ -31,6 +31,7 @@ Source: https://github.com/FinchSec/kali
 - wpa-sycophant
 - pcapfix
 - termshark
+- hcxtools
 
 # Run
 

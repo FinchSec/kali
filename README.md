@@ -31,6 +31,7 @@
 - wpa-sycophant
 - pcapfix
 - termshark
+- hcxtools
 
 ## Building
 

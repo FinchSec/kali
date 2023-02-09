@@ -15,7 +15,7 @@ RUN apt-get update && \
 			asleap bettercap hostapd-mana reaver mdk3 mdk4 procps zsh termshark \
 			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon pcapfix \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
-			eapmd5pass pixiewps bully python3-simplejson iproute2 \
+			eapmd5pass pixiewps bully python3-simplejson iproute2 hcxtools \
 			$([ "$(uname -m)" != "armv7l" ] && echo hashcat-utils hashcat pocl-opencl-icd) \
 			$([ "$(uname -m)" = "x86_64" ] && echo intel-opencl-icd) \
 			openssh-client kmod wifite hcxdumptool --no-install-recommends -y && \
