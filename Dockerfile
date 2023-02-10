@@ -9,9 +9,9 @@ RUN apt-get update && \
 		echo "wireshark-common	wireshark-common/install-setuid	boolean boolean false" | debconf-set-selections && \
 		DEBIAN_FRONTEND=noninteractive apt-get install -y kismet tshark && \
 		apt-get purge debconf-utils -y && \
-		apt-get install python3 perl rfkill iw nftables iptables \
+		apt-get install \
 			aircrack-ng tcpdump john cowpatty routerkeygenpc wpa-sycophant \
-			asleap bettercap hostapd-mana reaver mdk3 mdk4 procps zsh termshark \
+			asleap bettercap hostapd-mana reaver mdk3 mdk4 termshark \
 			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon pcapfix \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully python3-simplejson iproute2 hcxtools \
