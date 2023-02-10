@@ -9,7 +9,7 @@ on:
       - '.github/workflows/docker.yml'
       - 'README.md'
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 6 * * *'
   workflow_dispatch:
   pull_request:
     branches:
