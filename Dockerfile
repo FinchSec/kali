@@ -11,7 +11,7 @@ RUN apt-get update && \
 		apt-get purge debconf-utils -y && \
 		apt-get install \
 			aircrack-ng tcpdump john cowpatty routerkeygenpc wpa-sycophant \
-			asleap bettercap hostapd-mana reaver mdk3 mdk4 termshark \
+			asleap bettercap hostapd-mana reaver mdk3 mdk4 termshark berate-ap \
 			hostapd-wpe freeradius-wpe wig-ng wifipumpkin3 airgeddon pcapfix \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully python3-simplejson iproute2 hcxtools \
