@@ -1,6 +1,7 @@
 FROM finchsec/kali:base
 LABEL org.opencontainers.image.authors="thomas@finchsec.com"
 ENV LANG en_US.UTF-8
+#hadolint ignore=SC2046,DL3005,DL3008,SC2406,DL3015,DL4006
 RUN apt-get update && \
 	echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/force-unsafe-io && \
 	apt-get dist-upgrade -y && \
