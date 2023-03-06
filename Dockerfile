@@ -7,7 +7,7 @@ RUN apt-get update && \
 		apt-get install debconf-utils -y && \
 		echo "kismet-capture-common kismet-capture-common/install-setuid boolean false" | debconf-set-selections && \
 		echo "wireshark-common	wireshark-common/install-setuid	boolean boolean false" | debconf-set-selections && \
-		DEBIAN_FRONTEND=noninteractive apt-get install -y kismet tshark && \
+		DEBIAN_FRONTEND=noninteractive apt-get install -y kismet kismet-plugins tshark && \
 		apt-get purge debconf-utils -y && \
 		apt-get install \
 			aircrack-ng tcpdump john cowpatty routerkeygenpc wpa-sycophant \
