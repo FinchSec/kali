@@ -25,6 +25,11 @@ RUN apt-get update && \
 ARG ASLEAP_BIN="/usr/local/bin/asleap"
 COPY --from=finchsec/asleap:static /usr/bin/asleap "${ASLEAP_BIN}"
 COPY --from=finchsec/asleap:static /usr/bin/genkeys /usr/local/bin/genkeys
+# Install crackapd
+ARG CRACKAPD_CONF="/usr/local/etc/crackapd.conf"
+ARG CRACKAPD_PY="/usr/local/bin/crackapd.py"
+COPY --from=finchsec/crackapd:latest "${CRACKAPD_PY}" "${CRACKAPD_PY}"
+COPY --from=finchsec/crackapd:latest "${CRACKAPD_CONF}" "${CRACKAPD_CONF}"
 # Kismet
 EXPOSE 2501
 # Bettercap
