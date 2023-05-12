@@ -22,7 +22,8 @@ RUN apt-get update && \
 		apt-get autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
 # Use statically compiled asleap
-COPY --from=finchsec/asleap:static /usr/bin/asleap /usr/local/bin/asleap
+ARG ASLEAP_BIN="/usr/local/bin/asleap"
+COPY --from=finchsec/asleap:static /usr/bin/asleap "${ASLEAP_BIN}"
 COPY --from=finchsec/asleap:static /usr/bin/genkeys /usr/local/bin/genkeys
 # Kismet
 EXPOSE 2501
