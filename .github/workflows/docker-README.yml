@@ -15,7 +15,7 @@ jobs:
     steps:
       -
         name: Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Update Docker repo description
         uses: peter-evans/dockerhub-description@v3.1.2
