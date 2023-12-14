@@ -30,6 +30,11 @@ RUN wget https://raw.githubusercontent.com/blackarrowsec/EAP_buster/master/EAP_b
 		-q -O /opt/EAP_buster.sh && \
 	chmod +x /opt/EAP_buster.sh && \
 	ln -s /opt/EAP_buster.sh /usr/local/sbin/EAP_buster.sh
+# Add PCAP Filter
+RUN wget https://gist.githubusercontent.com/r4ulcl/f3470f097d1cd21dbc5a238883e79fb2/raw/pcapFilter.sh \
+		-q -O /opt/pcapFilter.sh && \
+	chmod +x /opt/pcapFilter.sh && \
+	ln -s /opt/pcapFilter.sh /usr/local/bin/EAP_recon.sh
 # Kismet
 EXPOSE 2501
 # Bettercap
