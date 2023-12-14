@@ -25,6 +25,11 @@ RUN apt-get update && \
 ARG ASLEAP_BIN="/usr/local/bin/asleap"
 COPY --from=finchsec/asleap:static /usr/bin/asleap "${ASLEAP_BIN}"
 COPY --from=finchsec/asleap:static /usr/bin/genkeys /usr/local/bin/genkeys
+# EAP Buster
+RUN wget https://raw.githubusercontent.com/blackarrowsec/EAP_buster/master/EAP_buster.sh \
+		-q -O /opt/EAP_buster.sh && \
+	chmod +x /opt/EAP_buster.sh && \
+	ln -s /opt/EAP_buster.sh /usr/local/sbin/EAP_buster.sh
 # Kismet
 EXPOSE 2501
 # Bettercap
