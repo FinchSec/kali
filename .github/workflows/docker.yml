@@ -46,7 +46,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          platforms: linux/amd64, linux/arm64, linux/armhf, linux/armel
+          platforms: linux/amd64, linux/arm64, linux/armhf
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             finchsec/kali:latest
