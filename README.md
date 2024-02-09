@@ -57,4 +57,4 @@ URL: https://hub.docker.com/r/finchsec/kali
 
 ## Running
 
-`sudo docker run --rm -it --privileged --net=host --pid=host kali`
+`sudo docker run --rm -it --privileged --net=host --pid=host finchsec/kali`
