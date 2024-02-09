@@ -1,0 +1,8 @@
+services:
+    kali:
+        stdin_open: true
+        tty: true
+        privileged: true
+        network_mode: host
+        pid: host
+        image: finchsec/kali
