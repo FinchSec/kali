@@ -17,7 +17,6 @@ RUN apt-get update && \
 			wordlists hostapd wpasupplicant iwd eaphammer wireless-tools \
 			eapmd5pass pixiewps bully python3-simplejson iproute2 hcxtools \
 			$([ "$(uname -m)" != "armv7l" ] && echo hashcat-utils hashcat pocl-opencl-icd) \
-			$([ "$(uname -m)" = "x86_64" ] && echo intel-opencl-icd) \
 			openssh-client kmod wifite hcxdumptool --no-install-recommends -y && \
 		apt-get autoclean && \
 		rm -rf /var/lib/dpkg/status-old /etc/dpkg/dpkg.cfg.d/force-unsafe-io /var/lib/apt/lists/*
