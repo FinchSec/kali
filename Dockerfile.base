@@ -1,6 +1,8 @@
+#hadolint ignore=DL3006
 FROM kalilinux/kali-rolling
 LABEL org.opencontainers.image.authors="thomas@finchsec.com"
 ENV LANG en_US.UTF-8
+#hadolint ignore=DL3005,DL3008,DL3015,DL4006
 RUN apt-get update && \
 	echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/force-unsafe-io && \
 	apt-get dist-upgrade -y && \

@@ -1,5 +1,7 @@
+#hadolint ignore=DL3006
 FROM finchsec/kali
 LABEL org.opencontainers.image.authors="thomas@finchsec.com"
+#hadolint ignore=DL3008
 RUN apt-get update && \
 		apt-get install openssh-server --no-install-recommends -y && \
 		apt-get autoclean && \
